@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maui_bug.InnerView">
+<Border Margin="5" StrokeShape="RoundRectangle 5">
+        <VerticalStackLayout Padding="5">
+            <Label Text="{Binding Items.Count, StringFormat='TotalCount {0}'}" />
+            
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding Items}" Padding="0, 5">
+              <BindableLayout.ItemTemplate>
+                 <DataTemplate>
+                     <SwipeView>
+                            <Grid ColumnDefinitions="*" Padding="6, 2">
+                                <VerticalStackLayout Spacing="1">
+                                    <Label Text="{Binding Title}"/>
+                                    <Label FontSize="10" Padding="2,0,0,0" TextColor="Gray" Text="{Binding Time}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                     </SwipeView>
+                 </DataTemplate>
+              </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+</Border>
+</ContentView>
+
